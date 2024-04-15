@@ -39,7 +39,7 @@ class Customer():
         j["adult"] = self.adult()
         return j
     
-engine = db.create_engine('sqlite:///../input/cutomer-sqlite/customer.sqlite') #this project was made in Kaggle
+engine = db.create_engine('sqlite:///../input/cutomer-sqlite/customer.sqlite') # used Kaggle to make this project
 connection = engine.connect()
 
 query = db.text('SELECT * FROM customer')
@@ -47,5 +47,7 @@ result_proxy = connection.execute(query)
 connection.close()
 results = result_proxy.fetchall()
 
-for row in results:
-    customer = Customer(row[0], row[1], row[2], row[3], row[4], row[5], row[6])
+#for demonstration/debugging 
+#for row in results:
+#    customer = Customer(row[0], row[1], row[2], row[3], row[4], row[5], row[6])
+#    print (customer.to_json())
