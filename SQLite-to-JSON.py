@@ -16,10 +16,11 @@ class Customer():
     def full_name(self):
         return self.first_name + " " + self.last_name
     
-    def age(self):
-        dob = datetime.strptime(self.dob, "%Y-%m-%d").date()
+    def age(d):
+        dob = datetime.strptime(d, '%Y-%m-%d')
         today = datetime.today()
-        return today.year - dob.year 
+        age = relativedelta(today, dob)
+        return age.years
     
     def adult(self):
         return self.age() >= 18
